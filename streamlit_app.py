@@ -43,4 +43,5 @@ streamlit.dataframe(my_data_row)
 
 my_choice = streamlit.text_input('Which fruit would you like to add?','Kiwi')
 streamlit.write('The user added ', my_choice)
-f_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+
+my_cur.execute("insert into FRUIT_LOAD_LIST values ("from streamlit")")
