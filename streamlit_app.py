@@ -21,6 +21,10 @@ streamlit.header('Both are very good boys! 👌')
 streamlit.text('Both are bigtime foodies!! 😊')
 streamlit.text('E & P !!!')
 
+def get_fruit_data(fruit_choice):
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  return fruityvice_normalized
 
 streamlit.header("Fruityvice Fruit Advice!")
 try:
@@ -28,9 +32,8 @@ try:
   if not fruit_choice:
     streamlit.error("Please enter the fruit name.")
   else:
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    streamlit.dataframe(fruityvice_normalized)
+    get_data = get_fruit_data(fruit_choice)
+    streamlit.dataframe(get_data)
 except URLError as e:
   streamlit.error()
   
