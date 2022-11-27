@@ -19,6 +19,9 @@ streamlit.header('Both are very good boys! 👌')
 streamlit.text('Both are bigtime foodies!! 😊')
 streamlit.text('E & P !!!')
 
+
+streamlit.header("Fruityvice Fruit Advice!")
+
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text(fruityvice_response)
